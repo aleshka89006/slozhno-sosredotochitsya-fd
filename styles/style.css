@@ -62,7 +62,7 @@
   color: var(--highlight-color);
   font-family: var(--main-font-family);
   font-size: var(--font-size);
-  font-weight: var(--font-weight-normal);;
+  font-weight: var(--font-weight-normal);
   font-style: normal;
   line-height: 25px;
   text-transform: uppercase;
@@ -163,14 +163,15 @@
 .section__title {
   color: var(--section-title-color);
   font-family: IBM Plex Mono;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 23.4px;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height);
 }
 
 .card__title {
   color: var(--title-text-color);
   font-size: var(--font-size);
+  line-height: var(--line-height);
 }
 
 .card__text {
