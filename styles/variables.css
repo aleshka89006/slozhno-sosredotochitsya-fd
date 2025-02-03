@@ -3,7 +3,7 @@
   и их переопределение под различные устройства
 */
 :root {
-  --font-family: 'IBM Plex mono', monospace;
+  --font-family: 'IBM Plex mono', monospace, Arial, sans-serif;
   --font-size: 18px;
   --font-weight-bold: 700;
   --font-weight-normal: 400;
@@ -17,7 +17,7 @@
   --highlight-color: #FF0070;
   --corner-border-color: #FF0070;
   --menu-button-color: #FF0070;
+  --menu-button-color-hover: #FF007066;
   --main-title-color-shadow: #FF0070;
   --text-bg-color: #FF0070;
-  
 }

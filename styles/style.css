@@ -2,8 +2,8 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  font-family: var(--font-family);
-  background-color: var(--bg-color);
+  font-family: var(--font-family, IBM Plex mono, monospace, Arial, sans-serif);
+  background-color: var(--bg-color, #000028);
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
@@ -21,30 +21,26 @@
   padding: 10px;
 }
 
-.decorated-zone::before {
+.decorated-zone::before,
+.decorated-zone::after{
   position: absolute;
   content: "";
-  align-self: flex-start;
-  justify-self: end;
-  top: 10px;
-  right: 10px;
   inline-size: 25px;
   block-size: 25px;
-  border-block-start: 1px solid var(--corner-border-color);
-  border-inline-end: 1px solid var(--corner-border-color);
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
+  border-block-start: 1px solid var(--corner-border-color, #FF0070);
+  border-inline-end: 1px solid var(--corner-border-color, #FF0070);
 }
 
 .decorated-zone::after {
-  position: absolute;
-  content: "";
-  align-self: flex-end;
-  justify-self: start;
   bottom: 10px;
   left: 10px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-block-end: 1px solid var(--corner-border-color);
-  border-inline-start: 1px solid var(--corner-border-color);
+  border-block-end: 1px solid var(--corner-border-color, #FF0070);
+  border-inline-start: 1px solid var(--corner-border-color, #FF0070);
 }
 
 .header_decoration {
@@ -59,10 +55,10 @@
 
 .header_decoration::before {
   content: "REC";
-  color: var(--highlight-color);
-  font-family: var(--main-font-family);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-normal);
+  color: var(--highlight-color, #FF0070);
+  font-family: var(--main-font-family, IBM Plex mono, monospace, Arial, sans-serif);
+  font-size: var(--font-size, 18px);
+  font-weight: var(--font-weight-normal, 400);
   font-style: normal;
   line-height: 25px;
   text-transform: uppercase;
@@ -74,9 +70,9 @@
   inline-size: 9px;
   block-size: 9px;
   border-radius: 50%;
-  box-shadow: 0 0 4px 2px var(--highlight-color);
+  box-shadow: 0 0 4px 2px var(--highlight-color, #FF0070);
   color: var(--accent-color);
-  background-color: var(--highlight-color);
+  background-color: var(--highlight-color, #FF0070);
 }
 
 .header__theme-menu {
@@ -89,19 +85,20 @@
 }
 
 .header__theme-menu-button {
+  font-family: var(--font-family, IBM Plex mono, monospace, Arial, sans-serif);
   background-color: transparent;
   border: none;
-  color: var(--menu-button-color);
-	text-transform: lowercase;
-  font-size: var(--font-size);
+  color: var(--menu-button-color,  #FF0070);
+  text-transform: lowercase;
+  font-size: var(--font-size, 18px);
   cursor: pointer;
   padding: 0px 13px;
   padding-block-end: 4px;
 }
 
 .header__theme-menu-button_active {
-	pointer-events: none;
-	border: 1px solid var(--menu-button-color);
+  pointer-events: none;
+  outline: 1px solid var(--menu-button-color, #FF0070);
 }
 
 .header__theme-menu-button:focus {
@@ -109,35 +106,38 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-bottom: 1px solid var(--menu-button-color);
+  border-block-end: 1px solid var(--menu-button-color, #FF0070);
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--menu-button-color);
+  outline: 1px solid var(--menu-button-color-hover, #FF007066);
 }
 
 .header__title {
   place-self: center start;
-  color: var(--main-title-color);
+  text-shadow: 4px 4px var(--main-title-color-shadow, #FF0070);
+}
+
+.logo-decoration {
+  color: var(--main-title-color, #db00ff);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  text-shadow: 4px 4px var(--main-title-color-shadow);
   line-height: 95px;
 }
 
 .header__text {
   justify-self: flex-end;
-  color: var(--title-text-color);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height);
+  color: var(--title-text-color, #000028);
+  font-size: var(--font-size, 18px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height, 23.4px);
 }
 
 .title-decor {
-  background-color: var(--text-bg-color);
+  background-color: var(--text-bg-color, #FF0070);
 }
 
-.thin-text {
-  font-weight: var(--font-weight-normal);
+.card__title-style {
+  font-weight: var(--font-weight-normal, 400);
 }
 
 .main {
@@ -153,35 +153,34 @@
   gap: 20px;
 }
 
-.section__question,
-.section__description,
-.section__answer {
+.content-section {
   display: grid;
-  row-gap: 20px;
+  row-gap: 19.5px;
 }
 
 .section__title {
-  color: var(--section-title-color);
-  font-family: IBM Plex Mono;
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height);
+  color: var(--section-title-color,#FF0070);
+  font-family: var(--font-family, IBM Plex mono, monospace, Arial, sans-serif);
+  font-size: var(--font-size, 18px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height, 23.4px);
 }
 
 .card__title {
-  color: var(--title-text-color);
-  font-size: var(--font-size);
-  line-height: var(--line-height);
+  color: var(--title-text-color, #000028);
+  font-size: var(--font-size, 18px);
+  line-height: var(--line-height, 23.4px);
 }
 
 .card__text {
-  font-size: var(--font-size);
-  color: var(--card-text-color);
+  font-size: var(--font-size, 18px);
+  color: var(--card-text-color, #F1B2CE);
   margin-block-start: 11px;
 }
 
 .text-link {
-  text-shadow: 2px 2px 0 var(--main-title-color-shadow);
+  font-family: var(--font-family, IBM Plex mono, monospace, Arial, sans-serif);
+  text-shadow: 2px 2px 0 var(--main-title-color-shadow, #FF0070);
   text-decoration: none;
 }
 
@@ -190,11 +189,11 @@
 }
 
 .text-link:focus-visible {
-  outline: 1px solid var(--card-text-color);
+  outline: 1px solid var(--card-text-color, #F1B2CE);
 }
 
 .text-link:hover {
-  border-bottom: 1px solid var(--card-text-color);
+  border-block-end: 1px solid var(--card-text-color, #F1B2CE);
 }
 
 .section__images {
@@ -215,17 +214,15 @@
 .footer {
   min-block-size: 668px;
   block-size: 100vh;
-	position: relative;
+  position: relative;
   display: grid;
 	padding: 10px;
 }
 
 .footer__title {
   justify-self: center;
-	align-self: center;
-  color: var(--main-title-color);
-	font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-	text-shadow: 2px 2px 0 var(--main-title-color-shadow);
+  align-self: center;
+  text-shadow: 2px 2px 0 var(--main-title-color-shadow,  #FF0070);
 }
 
 @media (width >= 768px) {
@@ -255,14 +252,17 @@
   }
 
   .header__theme-menu {
-		grid-column: 2;
+    grid-column: 2;
 	}
 
-  .header__title {
+  .logo-decoration {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    margin-inline-start: -20px;
-    grid-column: span 2;
     line-height: 99px;
+  }
+
+  .header__title {    
+    margin-inline-start: -20px;
+    grid-column: span 2;    
   }
 
   .header__text {
@@ -326,10 +326,6 @@
   .footer {
     min-block-size: 1024px;
   }
-
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
 }
 
 @media (width >= 1024px) {
@@ -337,7 +333,7 @@
     min-block-size: 768px;
   }
 
-  .header__title {
+  .logo-decoration {
     line-height: 129px;
   }
 
